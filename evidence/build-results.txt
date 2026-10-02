@@ -1,0 +1,13 @@
+
+> time-tracker@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v7.1.12 building for production...
+transforming...
+✓ 1582 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.75 kB │ gzip:  0.39 kB
+dist/assets/index-0-yy7tvQ.css   18.74 kB │ gzip:  4.79 kB
+dist/assets/index-Dqo8uYa0.js   241.08 kB │ gzip: 75.24 kB
+✓ built in 1.96s

@@ -1,0 +1,5 @@
+
+> time-tracker@1.0.0 lint
+> eslint web && python -m ruff check server tests
+
+All checks passed!

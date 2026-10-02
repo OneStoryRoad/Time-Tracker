@@ -1,0 +1,51 @@
+
+Running 28 tests using 1 worker
+
+(node:11535) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:11535) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-chromium] › tests/browser/app.spec.ts:142:1 › complete UI: clients, exact time, $120 invoice, $25/$95 payments, PDF, backup (4.0s)
+  ✓   2 [desktop-chromium] › tests/browser/app.spec.ts:242:1 › offline timer start-stop survives reload and reconnect exactly once (1.5s)
+  ✓   3 [desktop-chromium] › tests/browser/app.spec.ts:283:1 › timer durable refresh and two-tab start/stop competition (1.5s)
+  ✓   4 [desktop-chromium] › tests/browser/app.spec.ts:345:1 › lost response retains outbox and retry creates only one entry (1.2s)
+  ✓   5 [desktop-chromium] › tests/browser/app.spec.ts:377:1 › failed save shows an error, stays open, and retains recoverable pending action (1.4s)
+  ✓   6 [desktop-chromium] › tests/browser/app.spec.ts:409:1 › logout clears private cache and protects direct endpoints (1.4s)
+  ✓   7 [desktop-chromium] › tests/browser/app.spec.ts:435:1 › responsive pages and dialogs have no horizontal overflow (2.2s)
+  ✓   8 [desktop-chromium] › tests/browser/app.spec.ts:466:1 › void invoice and create linked correction without overwriting history (1.6s)
+  ✓   9 [desktop-chromium] › tests/browser/app.spec.ts:495:1 › two tabs cannot double-record a payment and logout clears both displays (2.4s)
+  ✓  10 [desktop-chromium] › tests/browser/app.spec.ts:528:1 › UI clean backup restore preserves payments and numbers; corruption leaves ledger unchanged (2.1s)
+  ✓  11 [desktop-chromium] › tests/browser/app.spec.ts:589:1 › editing notes preserves saved millisecond timestamps and historical rate (1.4s)
+  ✓  12 [desktop-chromium] › tests/browser/app.spec.ts:609:1 › Today clips completed work across local midnight (926ms)
+  ✓  13 [desktop-chromium] › tests/browser/app.spec.ts:628:1 › large supported amounts remain readable at 320px (817ms)
+  ✓  14 [desktop-chromium] › tests/browser/app.spec.ts:655:1 › stop atomically saves the current running note on the first tap (1.2s)
+(node:12171) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12171) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 [iphone-sized-chromium] › tests/browser/app.spec.ts:142:1 › complete UI: clients, exact time, $120 invoice, $25/$95 payments, PDF, backup (4.0s)
+  ✓  16 [iphone-sized-chromium] › tests/browser/app.spec.ts:242:1 › offline timer start-stop survives reload and reconnect exactly once (1.6s)
+  ✓  17 [iphone-sized-chromium] › tests/browser/app.spec.ts:283:1 › timer durable refresh and two-tab start/stop competition (1.6s)
+  ✓  18 [iphone-sized-chromium] › tests/browser/app.spec.ts:345:1 › lost response retains outbox and retry creates only one entry (1.2s)
+  ✓  19 [iphone-sized-chromium] › tests/browser/app.spec.ts:377:1 › failed save shows an error, stays open, and retains recoverable pending action (1.5s)
+  ✓  20 [iphone-sized-chromium] › tests/browser/app.spec.ts:409:1 › logout clears private cache and protects direct endpoints (1.5s)
+  ✓  21 [iphone-sized-chromium] › tests/browser/app.spec.ts:435:1 › responsive pages and dialogs have no horizontal overflow (2.7s)
+  ✓  22 [iphone-sized-chromium] › tests/browser/app.spec.ts:466:1 › void invoice and create linked correction without overwriting history (1.5s)
+  ✓  23 [iphone-sized-chromium] › tests/browser/app.spec.ts:495:1 › two tabs cannot double-record a payment and logout clears both displays (2.1s)
+  ✓  24 [iphone-sized-chromium] › tests/browser/app.spec.ts:528:1 › UI clean backup restore preserves payments and numbers; corruption leaves ledger unchanged (2.1s)
+  ✓  25 [iphone-sized-chromium] › tests/browser/app.spec.ts:589:1 › editing notes preserves saved millisecond timestamps and historical rate (1.3s)
+  ✓  26 [iphone-sized-chromium] › tests/browser/app.spec.ts:609:1 › Today clips completed work across local midnight (978ms)
+  ✓  27 [iphone-sized-chromium] › tests/browser/app.spec.ts:628:1 › large supported amounts remain readable at 320px (872ms)
+  ✓  28 [iphone-sized-chromium] › tests/browser/app.spec.ts:655:1 › stop atomically saves the current running note on the first tap (1.1s)
+
+  28 passed (50.4s)
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

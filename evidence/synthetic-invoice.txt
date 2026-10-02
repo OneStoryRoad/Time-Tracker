@@ -1,0 +1,47 @@
+ INVOICE
+ INV-00001
+
+
+
+FROM                                           BILL TO
+
+Synthetic Studio                               Acorn Design
+123 Example Street                             Alex Example
+Sample City, ZZ 00000                          42 Test Avenue
+owner@example.invalid                          Sample City, ZZ 00000
+                                               alex@example.invalid
+
+
+ Issued 2026-10-02 • Due 2026-11-01
+
+
+
+  WORK / DATE (UTC)                              HOURS    RATE         AMOUNT
+
+
+
+  Oct 02, 2026                                   1.5000   USD 60.00    USD 90.00
+  Brand exploration & concept sketches
+
+
+
+  Oct 02, 2026                                   0.5000   USD 60.00    USD 30.00
+  Design review and refinements
+
+
+
+
+ Total: USD 120.00
+
+ Payments recorded: USD 0.00
+
+ Balance due: USD 120.00
+
+
+ Please pay by check or transfer. Thank you.
+
+
+
+
+INV-00001 · Time Ledger                                                            Page 1
+

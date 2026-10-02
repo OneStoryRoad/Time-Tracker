@@ -1,0 +1,116 @@
+{
+  "format": "time-ledger-backup-v1",
+  "exported_at": 1790979625721,
+  "state": {
+    "schema_version": 1,
+    "settings": {
+      "business": "Synthetic Studio",
+      "address": "",
+      "email": "",
+      "terms": "Thank you for your business. Please pay by the due date.",
+      "currency": "USD"
+    },
+    "clients": [
+      {
+        "id": "bf68d509-4a71-4389-96a4-18158acbc404",
+        "name": "Acorn Design",
+        "contact": "Alex Example",
+        "email": "alex@example.invalid",
+        "address": "42 Test Avenue\nSample City",
+        "rate": 6000,
+        "archived": false
+      }
+    ],
+    "entries": [
+      {
+        "id": "f4f3ed52-3208-46fa-ba9b-f212c162dfe8",
+        "client_id": "bf68d509-4a71-4389-96a4-18158acbc404",
+        "start": 1790845200000,
+        "end": 1790850600000,
+        "notes": "Brand exploration",
+        "rate": 6000,
+        "billable": true,
+        "invoice_id": "6a6116f9-6d3c-4ee3-a518-0b72fa15e497",
+        "correction_of": null
+      },
+      {
+        "id": "30b7ab76-ce71-486d-9802-3bc8c3af0900",
+        "client_id": "bf68d509-4a71-4389-96a4-18158acbc404",
+        "start": 1790852400000,
+        "end": 1790854200000,
+        "notes": "Design review",
+        "rate": 6000,
+        "billable": true,
+        "invoice_id": "6a6116f9-6d3c-4ee3-a518-0b72fa15e497",
+        "correction_of": null
+      }
+    ],
+    "invoices": [
+      {
+        "id": "6a6116f9-6d3c-4ee3-a518-0b72fa15e497",
+        "number": "INV-00001",
+        "client": {
+          "id": "bf68d509-4a71-4389-96a4-18158acbc404",
+          "name": "Acorn Design",
+          "contact": "Alex Example",
+          "email": "alex@example.invalid",
+          "address": "42 Test Avenue\nSample City",
+          "rate": 6000,
+          "archived": false
+        },
+        "issuer": {
+          "business": "Synthetic Studio",
+          "address": "",
+          "email": "",
+          "terms": "Thank you for your business. Please pay by the due date.",
+          "currency": "USD"
+        },
+        "issued": "2026-10-02",
+        "due": "2026-11-01",
+        "lines": [
+          {
+            "entry_id": "f4f3ed52-3208-46fa-ba9b-f212c162dfe8",
+            "start": 1790845200000,
+            "end": 1790850600000,
+            "notes": "Brand exploration",
+            "rate": 6000,
+            "amount": 9000,
+            "correction_of": null
+          },
+          {
+            "entry_id": "30b7ab76-ce71-486d-9802-3bc8c3af0900",
+            "start": 1790852400000,
+            "end": 1790854200000,
+            "notes": "Design review",
+            "rate": 6000,
+            "amount": 3000,
+            "correction_of": null
+          }
+        ],
+        "total": 12000,
+        "voided": false,
+        "void_reason": "",
+        "void_date": ""
+      }
+    ],
+    "payments": [
+      {
+        "id": "44427acd-d603-47cf-a21a-a6a1bb5171b7",
+        "invoice_id": "6a6116f9-6d3c-4ee3-a518-0b72fa15e497",
+        "amount": 2500,
+        "date": "2026-10-02",
+        "reference": ""
+      },
+      {
+        "id": "9be08134-a893-456e-b752-0c288ed77ab1",
+        "invoice_id": "6a6116f9-6d3c-4ee3-a518-0b72fa15e497",
+        "amount": 9500,
+        "date": "2026-10-02",
+        "reference": ""
+      }
+    ],
+    "timer": null,
+    "next_invoice": 2
+  },
+  "checksum": "9eecc5b1fe333652cf7289561f0c6ea8b86d4cd406d1b0636e760ea2c7c4c2e9"
+}
