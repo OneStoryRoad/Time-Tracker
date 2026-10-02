@@ -6,7 +6,7 @@ Canonical checkout: `/workspace/Time-Tracker`, origin `https://github.com/OneSto
 
 | Check | Result | Evidence |
 | --- | --- | --- |
-| Python unit/integration | **36 passed**, 1 test-helper deprecation warning | `evidence/backend-results.txt` |
+| Python unit/integration | **37 passed**, 1 test-helper deprecation warning | `evidence/backend-results.txt` |
 | Browser acceptance | **28 passed**: 14 desktop + 14 iPhone-sized Chromium | `evidence/browser-results.txt`, `tests/browser/app.spec.ts` |
 | TypeScript strict check | Passed | `evidence/typecheck-results.txt` |
 | ESLint and Ruff | Passed | `evidence/lint-results.txt` |
@@ -25,7 +25,7 @@ All test data are synthetic. Test passwords/hashes are synthetic fixtures only; 
 - Invoice selection uniqueness and transaction/version conflicts prevent duplicate billing. Payment retries and competing requests do not duplicate payment records. Client/rate edits cannot change finalized snapshots. Finalized entry editing/deleting is blocked. Void-and-linked-correction history is exercised.
 - Anonymous direct state/PDF/CSV/backup APIs are protected. Cross-origin writes are rejected. Production scrypt auth and HttpOnly/Secure/SameSite cookies are exercised with an ephemeral synthetic fixture. Failed-login throttle, session revocation and cross-tab cache-clearing logout are tested.
 - Offline start/stop, reload of the cached production shell, reconnect, and generated-ID resolution sync exactly once. Lost-response outboxes remain retryable. Failed saves remain visible/recoverable and forms do not close as successful. Pending-action export/discard is explicit.
-- JSON backup → new empty database restore preserves invoice/client/entry/payment links, snapshots and numbering. UI replacement restore works; checksum edits and multiple relationship/amount/sequence corruptions are rejected atomically. Synthetic database-save failure rolls back ledger and receipt together. Timer state survives authentication/process-session loss.
+- JSON backup → new empty database restore preserves invoice/client/entry/payment links, snapshots and numbering. UI replacement restore works; checksum edits and multiple relationship/amount/sequence corruptions are rejected atomically. Synthetic database-save failure rolls back ledger and receipt together. Timer state survives authentication/session loss and an actual server-process terminate/restart test.
 
 ## Run or review
 

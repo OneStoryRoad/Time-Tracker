@@ -601,3 +601,99 @@ def test_production_auth_cookie_and_fail_closed_configuration(tmp_path, monkeypa
         assert c.get("/api/state").status_code == 200
         assert c.post("/api/logout", json={}, headers=headers).status_code == 200
         assert c.get("/api/backup").status_code == 401
+
+
+def test_actual_process_restart_preserves_timer(tmp_path):
+    import os
+    import socket
+    import subprocess
+    import sys
+    import httpx
+
+    with socket.socket() as sock:
+        sock.bind(("127.0.0.1", 0))
+        port = sock.getsockname()[1]
+    origin = f"http://127.0.0.1:{port}"
+    headers = {"Origin": origin, "X-Ledger-Request": "1"}
+    env = {
+        **os.environ,
+        "APP_TEST_MODE": "1",
+        "APP_DB": str(tmp_path / "restart.sqlite"),
+        "PORT": str(port),
+        "APP_ORIGIN": origin,
+    }
+
+    def start():
+        process = subprocess.Popen(
+            [sys.executable, "-m", "server.app"],
+            env=env,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        for _ in range(100):
+            try:
+                httpx.get(origin, timeout=1)
+                return process
+            except httpx.ConnectError:
+                if process.poll() is not None:
+                    raise AssertionError("Synthetic server exited before readiness.")
+                time.sleep(0.03)
+        process.terminate()
+        process.wait(timeout=5)
+        raise AssertionError("Synthetic server did not start.")
+
+    def sign_in(c):
+        assert (
+            c.post(
+                "/api/login",
+                json={"password": "synthetic-preview-only"},
+                headers=headers,
+            ).status_code
+            == 200
+        )
+
+    def send(c, kind, payload):
+        version = c.get("/api/state").json()["version"]
+        r = c.post(
+            "/api/command",
+            json={
+                "id": str(uuid4()),
+                "version": version,
+                "kind": kind,
+                "payload": payload,
+            },
+            headers=headers,
+        )
+        assert r.status_code == 200
+        return r.json()["state"]
+
+    process = start()
+    try:
+        with httpx.Client(base_url=origin) as c:
+            sign_in(c)
+            s = send(c, "client", {"name": "Restart fixture", "rate": 6000})
+            s = send(
+                c,
+                "start",
+                {
+                    "client_id": s["clients"][0]["id"],
+                    "at": int(time.time() * 1000) - 60000,
+                    "notes": "Survives process restart",
+                },
+            )
+            original = s["timer"]
+        process.terminate()
+        process.wait(timeout=5)
+        process = start()
+        with httpx.Client(base_url=origin) as c:
+            assert c.get("/api/state").status_code == 401
+            sign_in(c)
+            assert c.get("/api/state").json()["state"]["timer"] == original
+            s = send(
+                c, "stop", {"timer_id": original["id"], "at": int(time.time() * 1000)}
+            )
+            assert s["timer"] is None and len(s["entries"]) == 1
+            assert s["entries"][0]["notes"] == "Survives process restart"
+    finally:
+        process.terminate()
+        process.wait(timeout=5)
